@@ -1,10 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import { parseTodosSearch } from '@features/todos'
+import { parseTrustCardSearch } from '@features/trust-card'
 
 import Home from '@pages/Home'
 
 export const Route = createFileRoute('/')({
-	validateSearch: search => parseTodosSearch(search),
+	validateSearch: search => parseTrustCardSearch(search),
 	component: Home,
 })

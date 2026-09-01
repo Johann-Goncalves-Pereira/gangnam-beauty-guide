@@ -7,7 +7,7 @@ function NotFound() {
 			<p className='text-stone-600 dark:text-stone-300'>
 				The page you are looking for does not exist.
 			</p>
-			<Link to='/' search={{ filter: 'all' }} className='underline'>
+			<Link to='/' className='text-jade underline'>
 				Go to home
 			</Link>
 		</div>

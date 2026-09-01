@@ -6,7 +6,10 @@ const Env = Schema.Struct({
 	PROD: Schema.Boolean,
 	SSR: Schema.Boolean,
 	VITE_API_BASE_URL: Schema.optionalWith(Schema.URL, {
-		default: () => new URL('https://jsonplaceholder.typicode.com'),
+		default: () =>
+			typeof window !== 'undefined'
+				? new URL(window.location.origin)
+				: new URL('http://localhost:5173'),
 	}),
 })
 
