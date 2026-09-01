@@ -1,1 +1,66 @@
 @import 'tailwindcss';
+
+@theme {
+	--font-display: 'Fraunces', Georgia, serif;
+	--font-body: 'DM Sans', system-ui, sans-serif;
+	--color-ink: #0b0f14;
+	--color-paper: #f4f0ea;
+	--color-paper-muted: #c8c2b8;
+	--color-jade: #3daa8c;
+	--color-jade-muted: #2a7a66;
+	--color-amber-warn: #d4a054;
+	--color-rose-flag: #c45c5c;
+}
+
+@layer base {
+	body {
+		background-color: var(--color-ink);
+		color: var(--color-paper);
+		font-family: var(--font-body);
+	}
+}
+
+@keyframes fade-up {
+	from {
+		transform: translateY(12px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes chip-in {
+	from {
+		transform: scale(0.92);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes card-in {
+	from {
+		transform: translateY(8px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.animate-fade-up {
+	animation: fade-up 0.6s ease-out both;
+}
+
+.animate-card-in {
+	animation: card-in 0.45s ease-out both;
+}
+
+.animate-chip-in {
+	animation: chip-in 0.35s ease-out both;
+}

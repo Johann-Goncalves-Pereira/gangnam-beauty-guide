@@ -1,21 +1,21 @@
 import { getRouteApi } from '@tanstack/react-router'
 
-import { TodosPanel } from '@features/todos'
+import { TrustCardPanel } from '@features/trust-card'
 
 const routeApi = getRouteApi('/')
 
 function Home() {
-	const { filter } = routeApi.useSearch()
+	const { sample } = routeApi.useSearch()
 	const navigate = routeApi.useNavigate()
 
 	return (
-		<TodosPanel
-			filter={filter}
-			onFilterChange={nextFilter => {
+		<TrustCardPanel
+			sampleId={sample}
+			onSampleChange={nextSample => {
 				void navigate({
 					search: previous => ({
 						...previous,
-						filter: nextFilter,
+						sample: nextSample,
 					}),
 				})
 			}}
