@@ -63,8 +63,14 @@ function resolveUrl(path: string): Effect.Effect<string, ApiError> {
 		)
 	}
 
-	const base = env.VITE_API_BASE_URL.href.replace(/\/$/, '')
 	const normalizedPath = path.startsWith('/') ? path : `/${path}`
+
+	// Same-origin relative paths (e.g. /api/* on Vercel) — no VITE_API_BASE_URL needed.
+	if (normalizedPath.startsWith('/')) {
+		return Effect.succeed(normalizedPath)
+	}
+
+	const base = env.VITE_API_BASE_URL.href.replace(/\/$/, '')
 	return Effect.succeed(`${base}${normalizedPath}`)
 }
 
